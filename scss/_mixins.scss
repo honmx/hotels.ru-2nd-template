@@ -1,0 +1,59 @@
+@mixin btn ($bgColor, $fontColor) {
+  background-color: $bgColor;
+  color: $fontColor;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+
+  &:hover, &:focus {
+    border: 2px solid $bgColor;
+    background-color: $fontColor;
+    color: $bgColor;
+  }
+}
+
+@mixin line ($position, $width) {
+  &::before {
+    content: "";
+    position: absolute;
+    @if $position == "right" {
+      right: -$width - 20px;
+    }
+    @if $position == "left" {
+      left: -$width - 20px;
+    }
+    top: 50%;
+    transform: translateY(-50%);
+    width: $width;
+    height: 1px;
+    background-color: $primaryColor;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  
+  &:hover::before {
+    @if $position == "left" {
+      left: calc(100% + 20px);
+    }
+    @if $position == "right" {
+      right: calc(100% + 20px);
+    }
+  }
+}
+
+@mixin link-hover($bgColor) {
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: all 0.3s ease;
+  }
+  
+  &:hover::after {
+    width: 100%;
+    background-color: $bgColor;
+  }
+}
