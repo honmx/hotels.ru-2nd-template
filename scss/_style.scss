@@ -77,11 +77,12 @@
   }
 
   &__btn {
-    background-color:transparent;
+    background-color: transparent;
     border: none;
     aspect-ratio: 1;
     width: 35px;
     border-radius: 100vw;
+    transition: all 0.15s ease;
     cursor: pointer;
 
     &:hover {
@@ -720,18 +721,36 @@
   }
 }
 
+.social-networks {
+  &__img-wrapper {
+
+    border-radius: 100vw;
+    padding: 10px;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25px;
+      aspect-ratio: 1;
+    }
+
+    &:hover {
+      background-color: #00000022;
+    }
+  }
+}
+
 .gallery {
 
   &__img-wrapper {
     display: block;
-  }
-
-  &__img-wrapper {
     width: 100%;
   }
 
   &__img-wrapper img {
     max-width: 100%;
+    font-size: 0;
   }
 
   &__img-wrapper:nth-child(1),
@@ -748,6 +767,7 @@
   }
 
   &__img-wrapper:nth-child(3) {
+    height: 100%;
     min-width: 377px;
     grid-area: c;
   }
